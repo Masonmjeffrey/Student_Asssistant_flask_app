@@ -9,4 +9,4 @@ def hello_world():
 
 @app.route('/capitalize/<word>/')
 def capitalize(word):
-    return '<p>{}</p>'.format(escape(word.capitalize()))
+    return word.capitalize()
