@@ -19,5 +19,5 @@ def add(n1, n2):
 
 @app.route('/concat_nums/<nnum1>/<nnum2>/')
 def concat_nums(nnum1, nnum2):
-    concated_nums = str(nnum1)+str(nnum)
+    concated_nums = str(nnum1)+str(nnum2)
     return str(concated_nums)
