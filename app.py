@@ -15,3 +15,9 @@ def capitalize(word):
 def add(n1, n2):
     sumnum = n1+n2
     return str(sumnum)
+
+
+@app.route('/concat_nums/<nnum1>/<nnum2>/')
+def concat_nums(nnum1, nnum2):
+    concated_nums = str(nnum1)+str(nnum)
+    return str(concated_nums)
