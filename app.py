@@ -20,9 +20,9 @@ def db2():
     cur = conn.cursor()
     cur.execute('''
         CREATE TABLE IF NOT EXISTS Basketball (
-        City varchar(255)
-        LastName varchar(255)
-        FirstName varchar(255)
+        City varchar(255),
+        LastName varchar(255),
+        FirstName varchar(255),
         teamName varchar(255);
         )
     ''')
