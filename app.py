@@ -27,7 +27,7 @@ def db4():
     return "dropped"
 
 
-@app.route("/db_create_select")
+@app.route("/db_create_insert")
 def db2():
     conn = psycopg2.connect("postgres://sample_flask_db_user:7qN9gGyh8FcUmg99oDG8tdv4QHelRJMm@dpg-cfvrsul269v0ptnleuhg-a/sample_flask_db")
     cur = conn.cursor()
@@ -47,12 +47,8 @@ def db2():
         ('San Francisco', 'Steph', 'Curry', 'Warriors' );
     ''')
     conn.commit()
-    cur.execute('''
-        SELECT * FROM Basketball;
-    ''')
-    records = cur.fetchall()
     conn.close()
-    return records
+    return "table created and info inserted"
 
 
 @app.route("/db_select")
