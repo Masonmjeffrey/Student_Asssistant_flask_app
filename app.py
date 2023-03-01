@@ -23,8 +23,8 @@ def db2():
         City varchar(255),
         LastName varchar(255),
         FirstName varchar(255),
-        teamName varchar(255);
-        )
+        teamName varchar(255)
+        );
     ''')
     conn.commit()
     cur.execute('''
