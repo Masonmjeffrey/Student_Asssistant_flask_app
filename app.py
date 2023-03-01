@@ -1,4 +1,7 @@
 from flask import Flask
+import psycopg2
+
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -6,18 +9,7 @@ def hello_world():
     return 'Hello, World!'
 
 
-@app.route('/capitalize/<word>/')
-def capitalize(word):
-    return word.capitalize()
-
-
-@app.route('/add/<int:n1>/<int:n2>/')
-def add(n1, n2):
-    sumnum = n1+n2
-    return str(sumnum)
-
-
-@app.route('/concat_nums/<nnum1>/<nnum2>/')
-def concat_nums(nnum1, nnum2):
-    concated_nums = str(nnum1)+str(nnum2)
-    return str(concated_nums)
+@app.route('/dbtest')
+def index():
+    conn = psycopg2.connect("postgres://sample_flask_db_user:7qN9gGyh8FcUmg99oDG8tdv4QHelRJMm@dpg-cfvrsul269v0ptnleuhg-a/sample_flask_db")
+    return "it works"
