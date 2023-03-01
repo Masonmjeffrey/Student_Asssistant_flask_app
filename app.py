@@ -18,6 +18,10 @@ def index():
 def db2():
     conn = psycopg2.connect("postgres://sample_flask_db_user:7qN9gGyh8FcUmg99oDG8tdv4QHelRJMm@dpg-cfvrsul269v0ptnleuhg-a/sample_flask_db")
     cur = conn.cursor()
+    cur.execute ('''
+        DROP TABLE IF EXISTS Basketball;
+    ''')
+    conn.commit()
     cur.execute('''
         CREATE TABLE IF NOT EXISTS Basketball (
         City varchar(255),
@@ -46,7 +50,7 @@ def db3():
     conn = psycopg2.connect("postgres://sample_flask_db_user:7qN9gGyh8FcUmg99oDG8tdv4QHelRJMm@dpg-cfvrsul269v0ptnleuhg-a/sample_flask_db")
     cur = conn.cursor()
     cur.execute('''
-        SELECT * FROM Basketabll
+        SELECT * FROM Basketball;
     ''')
     records = cur.fetchall()
     conn.close()
