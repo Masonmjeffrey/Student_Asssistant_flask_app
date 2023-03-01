@@ -24,6 +24,7 @@ def db4():
     ''')
     conn.commit()
     conn.close()
+    return "dropped"
 
 
 @app.route("/db_create_select")
