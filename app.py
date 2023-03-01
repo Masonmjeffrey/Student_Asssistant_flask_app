@@ -27,7 +27,7 @@ def db2():
         )
     ''')
     cur.execute('''
-        INSERT INTO Basketabll (City, LastName, FirstName, TeamName)
+        INSERT INTO Basketball (City, LastName, FirstName, TeamName)
         VALUES ('Boston', 'Tatum', 'Jayson', 'Celtics');
     ''')
     cur.execute('''
