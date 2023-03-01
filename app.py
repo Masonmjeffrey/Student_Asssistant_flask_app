@@ -29,11 +29,24 @@ def db2():
     conn.commit()
     cur.execute('''
         INSERT INTO Basketball (City, LastName, FirstName, TeamName)
-        VALUES ('Boston', 'Tatum', 'Jayson', 'Celtics');
+        VALUES 
+        ('Boston', 'Tatum', 'Jayson', 'Celtics'),
+        ('San Francisco', 'Steph', 'Curry', 'Warriors' );
     ''')
     conn.commit()
     cur.execute('''
         SELECT * FROM Basketball;
+    ''')
+    records = cur.fetchall()
+    conn.close()
+    return records
+
+@app.route("/db_select")
+def db3():
+    conn = psycopg2.connect("postgres://sample_flask_db_user:7qN9gGyh8FcUmg99oDG8tdv4QHelRJMm@dpg-cfvrsul269v0ptnleuhg-a/sample_flask_db")
+    cur = conn.cursor()
+    cur.execute('''
+        SELECT * FROM Basketabll
     ''')
     records = cur.fetchall()
     conn.close()
