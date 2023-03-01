@@ -13,3 +13,25 @@ def hello_world():
 def index():
     conn = psycopg2.connect("postgres://sample_flask_db_user:7qN9gGyh8FcUmg99oDG8tdv4QHelRJMm@dpg-cfvrsul269v0ptnleuhg-a/sample_flask_db")
     return "it works"
+
+@app.route("/db_create_select")
+def db2():
+    conn = psycopg2.connect("postgres://sample_flask_db_user:7qN9gGyh8FcUmg99oDG8tdv4QHelRJMm@dpg-cfvrsul269v0ptnleuhg-a/sample_flask_db")
+    cur = conn.cursor()
+    cur.execute('''
+        CREATE TABLE IF NOT EXISTS Basketball (
+        City varchar(255)
+        LastName varchar(255)
+        FirstName varchar(255)
+        teamName varchar(255);
+        )
+    ''')
+    cur.execute('''
+        INSERT INTO Basketabll (City, LastName, FirstName, TeamName)
+        VALUES ('Boston', 'Tatum', 'Jayson', 'Celtics');
+    ''')
+    cur.execute('''
+        SELECT * FROM Basketball;
+    ''')
+    records = cur.fetchall()
+    return records
