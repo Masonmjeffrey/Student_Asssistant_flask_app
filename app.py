@@ -26,12 +26,15 @@ def db2():
         teamName varchar(255);
         )
     ''')
+    conn.commit()
     cur.execute('''
         INSERT INTO Basketball (City, LastName, FirstName, TeamName)
         VALUES ('Boston', 'Tatum', 'Jayson', 'Celtics');
     ''')
+    conn.commit()
     cur.execute('''
         SELECT * FROM Basketball;
     ''')
     records = cur.fetchall()
+    conn.close()
     return records
